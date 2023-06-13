@@ -1,0 +1,43 @@
+.finalapprovepage{
+    margin-left: 550px;
+    margin-top: 35px;
+}
+
+.finalapprovepage h1{
+    color: blue;
+    margin-bottom: 50px;
+    margin-left: 180px;
+}
+
+
+.finalapprovepage button{
+    background-color: #1161ed;
+    color: #FFF;
+    width: 25%;
+    padding: 10px 20px;
+    display: block;
+    height: 54px;
+    border-radius: 20px;
+    margin-top: 70px;
+    margin-left: 130px;
+    transition: all 0.5s ease-in-out;
+    border: none;
+    text-transform: uppercase;
+    font-size: 18px;
+  }
+  
+  
+  .finalapprovepage button:hover {
+    background: #4082f5;
+    box-shadow: 0px 4px 35px -5px #4082f5;
+    cursor: pointer;
+  }
+
+  .finalapprovepage button:focus {
+    outline: none;
+  }
+
+  .finalgetlink{
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.9);
+  }

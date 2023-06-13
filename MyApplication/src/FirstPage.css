@@ -1,0 +1,190 @@
+
+.Firstpage{
+    width: 100%;
+}
+
+.Firstpage-header{
+    position:static;
+    display:inline-block;
+    width: 100%;
+    background-color: lightblue;
+    padding-top: 30px;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: x-large;
+    height: 400px;
+    background-image: url("/src/topp.jpg");
+    /* padding-left: 75px; */
+    padding-bottom: 50px;
+}
+
+.heading{
+    text-align: left;
+    font-style: normal;
+    color: blue;
+    padding-left: 75px;
+    font-size: 5rem;
+    text-shadow: darkblue;
+  }
+
+.header-body{
+    height:fit-content;
+    align-content: left;
+    font-size: 29px;
+    padding-left: 75px;
+    margin-bottom: 65px;
+}
+
+.button_firstpage{
+    padding-left: 65px;
+}
+
+.my-button:link {
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px; /* space between buttons */
+    background: #27c6ee; /* background color */
+    color: #333; /* text color */
+    font-size: 1.1em;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style:normal;
+    border-radius: 50px; /* rounded corners */
+    padding: 12px 22px; /* space around text */
+    transition: all 0.2s;
+}
+.my-button:hover {
+    background: rgb(30, 27, 248);
+    color: #c1e1e0;
+}
+
+.stu-header{
+    position:static;
+    display:inline-block;
+    background-image: url("/src/OIP.jpg");
+    /* background-position: center; */
+    width:100%;
+    background-color: white;
+    padding-top: 0px;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: x-large;
+    height: 400px;
+    padding-left: 0px;
+    padding-bottom: 0px;
+}
+
+.stu-header h4{
+    text-align: right;
+    font-size: 55px;
+    color: blue;
+    margin-right: 140px;
+}
+
+.stu{
+    text-align: justify;
+    padding-right: 100px;
+    padding-left: 340px;
+    padding-top: 10px;
+    font-size: 20px;
+}
+
+
+.off-header{
+    position:static;
+    display:inline-block;
+    background-image: url("/src/officials.jpg");
+    /* background-position: center; */
+    width:100%;
+    background-color: white;
+    padding-top: 0px;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: x-large;
+    height: 400px;
+    padding-left: 0px;
+    padding-bottom: 0px;
+}
+
+.off-header h4{
+    text-align: left;
+    font-size: 55px;
+    color: blue;
+    margin-left: 95px;
+}
+
+.off{
+    text-align: justify;
+    padding-left: 100px;
+    padding-right: 470px;
+    padding-top: 10px;
+    font-size: 20px;
+}
+
+
+.em-header{
+    position:static;
+    display:inline-block;
+    background-image: url("/src/employee.jpg");
+    /* background-position: center; */
+    width:100%;
+    background-color: white;
+    padding-top: 0px;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: x-large;
+    height: 400px;
+    padding-left: 0px;
+    padding-bottom: 0px;
+}
+
+.em-header h4{
+    text-align: right;
+    font-size: 55px;
+    color: blue;
+    margin-right: 117px;
+}
+
+.em{
+    text-align: justify;
+    padding-right: 100px;
+    padding-left: 340px;
+    padding-top: 10px;
+    font-size: 20px;
+}
+
+
+.about-header{
+    position:static;
+    display:inline-block;
+    background-image: url("/src/topp.jpg");
+    /* background-position: center; */
+    width:100%;
+    background-color: white;
+    padding-top: 0px;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: x-large;
+    height: 400px;
+    padding-left: 0px;
+    padding-bottom: 0px;
+}
+
+.about-header h4{
+    text-align: center;
+    font-size: 55px;
+    color: blue;
+    margin-right: 117px;
+}
+
+.about{
+    text-align: justify;
+    padding-right: 100px;
+    padding-left: 340px;
+    padding-top: 0px;
+    font-size: 20px;
+}
+
+body{
+     /* background: rgb(163, 214, 231);  */
+    background: rgb(115, 210, 241);
+}

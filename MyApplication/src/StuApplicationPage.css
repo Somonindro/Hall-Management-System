@@ -1,0 +1,82 @@
+.application {
+    position: relative;
+    height: 860px;
+    width: 500px;
+    color:black;
+    margin: auto;
+    padding: 60px 60px;
+    /* background: url(https://live.staticflickr.com/3898/15223439751_e81a9c748c_b.jpg) no-repeat   center center #505050;    */
+    background-size: cover;
+    box-shadow: 0px 30px 60px -5px #000;
+    
+  }
+  
+  .applicationform {
+    padding-top: 30px;
+    padding-left: 90px;
+  }
+
+  .applicationtext {
+    color:rgb(0, 0, 0);
+    border: none;
+    width: 55%;
+    padding: 10px 20px;
+    display: block;
+    height: 18px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(228, 117, 117, 0);
+    overflow: hidden;
+    margin-top: 7px;
+    transition: all 0.5s ease-in-out;
+    border: 2px solid rgba(74, 7, 230, 0.8);
+
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 20px;
+    
+  }
+  
+  .applicationtext:focus {
+    outline: 0;
+    border: 2px solid rgba(233, 38, 38, 0.8);
+    border-radius: 20px;
+
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+    
+  }
+
+
+
+  .applicationsub {
+    background-color: #1161ed;
+    color: #FFF;
+    width: 68%;
+    padding: 10px 20px;
+    display: block;
+    height: 54px;
+    border-radius: 20px;
+    margin-top: 65px;
+    transition: all 0.5s ease-in-out;
+    border: none;
+    text-transform: uppercase;
+    font-size: 18px;
+  }
+  
+  
+  .applicationsub:hover {
+    background: #4082f5;
+    box-shadow: 0px 4px 35px -5px #4082f5;
+    cursor: pointer;
+  }
+
+  .applicationsub:focus {
+    outline: none;
+  }
+  
+  .applink{
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.69);
+  }
+  
+  

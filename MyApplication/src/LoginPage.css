@@ -1,0 +1,163 @@
+
+.signin {
+  background-color: #d3d3d3;
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.login {
+  position: relative;
+  height: 640px;
+  width: 405px;
+  color:wheat;
+  margin: auto;
+  padding: 60px 60px;
+  /* background: url(https://picsum.photos/id/1004/5616/3744) no-repeat   center center #505050;    */
+  background: url(https://live.staticflickr.com/3898/15223439751_e81a9c748c_b.jpg) no-repeat   center center #505050;   
+  background-size: cover;
+  box-shadow: 0px 30px 60px -5px #000;
+}
+
+.loginform {
+  padding-top: 48px;
+}
+
+.active {
+  border-bottom: 2px solid #1161ed;
+  margin-right: 15px;
+}
+
+
+h2 {
+  padding-left: 12px;
+  font-size: 22px;
+  text-transform: uppercase;
+  padding-bottom: 5px;
+  letter-spacing: 2px;
+  display: inline-block;
+  font-weight: 100;
+}
+
+h2:first-child {
+  padding-left: 0px;
+}
+
+span {
+  text-transform: uppercase;
+  font-size: 14px;
+  opacity: 1; 
+  display: inline-block;
+  position: relative;
+  top: -65px;
+  transition: all 0.5s ease-in-out;
+  margin-left: 8px;
+  margin-bottom: 8px;
+}
+
+.text {
+  color: rgb(245, 245, 245);
+  border: none;
+  width: 89%;
+  padding: 10px 20px;
+  display: block;
+  height: 15px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0);
+  overflow: hidden;
+  margin-top: 30px;
+  transition: all 0.5s ease-in-out;
+
+  font-family: 'Montserrat', sans-serif;
+  color: whitesmoke;
+}
+
+.text:focus {
+  outline: 0;
+  border: 2px solid rgba(223, 206, 206, 0.8);
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0);
+
+  font-family: 'Montserrat', sans-serif;
+  color: whitesmoke;
+}
+
+
+/* input[type="text"],
+input[type="password"] {
+  font-family: 'Montserrat', sans-serif;
+  color: whitesmoke;
+} */
+
+
+
+input {
+  display: inline-block;
+  padding-top: 20px;
+  font-size: 15px;
+}
+
+
+
+label {
+  display: inline-block;
+  padding-top: 10px;
+  padding-left: 5px;
+}
+
+.signin {
+  background-color: #1161ed;
+  color: #FFF;
+  width: 100%;
+  padding: 10px 20px;
+  display: block;
+  height: 40px;
+  border-radius: 20px;
+  margin-top: 90px;
+  transition: all 0.5s ease-in-out;
+  border: none;
+  text-transform: uppercase;
+  font-size: 18px;
+}
+
+
+.signin:hover {
+  background: #4082f5;
+  box-shadow: 0px 4px 35px -5px #4082f5;
+  cursor: pointer;
+}
+
+.alink{
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.69);
+}
+
+.signin:focus {
+  outline: none;
+}
+
+
+.a-login {
+  text-align: left;
+  margin-left: 17px;
+  display: block;
+  top: 100px;
+  position: relative;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 1.0);
+}
+
+.inSelect{
+  background: lightskyblue;
+  color: black;
+  padding: 10px;
+  font-size: 17px;
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+.inSelect option{
+color: black;
+  padding: 0 10px;
+}
