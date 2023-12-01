@@ -1,6 +1,5 @@
 var express = require('express');
 const { STRING } = require('oracledb');
-var router = express.Router();
 var oracledb=require('oracledb');
 
 //connect with db
@@ -12,4 +11,4 @@ connection = await oracledb.getConnection({
     tns:conString
 });
 
-export {connection}
+export default connection;

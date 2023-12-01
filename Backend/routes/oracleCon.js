@@ -55,133 +55,133 @@ let searchwhat;
 //   });
 
 
-  router.post('/reg-std-dininghistory', function(req, res, next) {
+//   router.post('/reg-std-dininghistory', function(req, res, next) {
 
-    //connect with db
-    var conString="(DESCRIPTION =(LOAD_BALANCE = ON)(FAILOVER = ON)(ADDRESS=(PROTOCOL = TCP)(HOST = 192.168.43.89)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = server2)(PORT = 1521)(CONNECT_DATA=(SERVICE_NAME=XE)(FAILOVER_MODE=(TYPE=SELECT)(METHOD =BASIC))))";
+//     //connect with db
+//     var conString="(DESCRIPTION =(LOAD_BALANCE = ON)(FAILOVER = ON)(ADDRESS=(PROTOCOL = TCP)(HOST = 192.168.43.89)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = server2)(PORT = 1521)(CONNECT_DATA=(SERVICE_NAME=XE)(FAILOVER_MODE=(TYPE=SELECT)(METHOD =BASIC))))";
 
-    oracledb.getConnection({
-        user:'C##HALL_MANAGEMENT',
-        password:'hall_management',
-        tns:conString
-    },function(err,con){
-        if(err)
-        {
-            res.send('db con error');
-        }
-        else{
-            var query="SELECT CURR_DATE,LUNCH,DINNER FROM MENU WHERE HALL_NAME=(SELECT HALL_NAME FROM PERSON WHERE MAIL_ID='"+mail_from_signin+"')";
+//     oracledb.getConnection({
+//         user:'C##HALL_MANAGEMENT',
+//         password:'hall_management',
+//         tns:conString
+//     },function(err,con){
+//         if(err)
+//         {
+//             res.send('db con error');
+//         }
+//         else{
+//             var query="SELECT CURR_DATE,LUNCH,DINNER FROM MENU WHERE HALL_NAME=(SELECT HALL_NAME FROM PERSON WHERE MAIL_ID='"+mail_from_signin+"')";
 
-            con.execute(query,[],{autoCommit:true},function(e,s){
-                if(e){
-                    res.send(e);
-                }
-                else{
-                    res.send(s);
-                }
-            })
+//             con.execute(query,[],{autoCommit:true},function(e,s){
+//                 if(e){
+//                     res.send(e);
+//                 }
+//                 else{
+//                     res.send(s);
+//                 }
+//             })
             
-        }
-    });
+//         }
+//     });
 
-  });
+//   });
 
 
-  router.post('/reg-std-studining', function(req, res, next) {
+//   router.post('/reg-std-studining', function(req, res, next) {
 
-    //connect with db
-    var conString="(DESCRIPTION =(LOAD_BALANCE = ON)(FAILOVER = ON)(ADDRESS=(PROTOCOL = TCP)(HOST = 192.168.43.89)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = server2)(PORT = 1521)(CONNECT_DATA=(SERVICE_NAME=XE)(FAILOVER_MODE=(TYPE=SELECT)(METHOD =BASIC))))";
+//     //connect with db
+//     var conString="(DESCRIPTION =(LOAD_BALANCE = ON)(FAILOVER = ON)(ADDRESS=(PROTOCOL = TCP)(HOST = 192.168.43.89)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = server2)(PORT = 1521)(CONNECT_DATA=(SERVICE_NAME=XE)(FAILOVER_MODE=(TYPE=SELECT)(METHOD =BASIC))))";
 
-    oracledb.getConnection({
-        user:'C##HALL_MANAGEMENT',
-        password:'hall_management',
-        tns:conString
-    },function(err,con){
-        if(err)
-        {
-            res.send('db con error');
-        }
-        else{
-            var query="SELECT P.NAME,M.MAIL_ID,MM.STUDENT_ID,MM.MESS_MONTH,M.CURR_DATE,LUNCH,DINNER FROM MENU M JOIN MESS_MANAGER MM ON (M.MAIL_ID=MM.MAIL_ID) JOIN PERSON P ON (M.MAIL_ID=P.MAIL_ID) WHERE M.CURR_DATE=TO_CHAR(SYSDATE) AND MM.HALL_NAME=(SELECT HALL_NAME FROM PERSON WHERE MAIL_ID='"+mail_from_signin+"')";
+//     oracledb.getConnection({
+//         user:'C##HALL_MANAGEMENT',
+//         password:'hall_management',
+//         tns:conString
+//     },function(err,con){
+//         if(err)
+//         {
+//             res.send('db con error');
+//         }
+//         else{
+//             var query="SELECT P.NAME,M.MAIL_ID,MM.STUDENT_ID,MM.MESS_MONTH,M.CURR_DATE,LUNCH,DINNER FROM MENU M JOIN MESS_MANAGER MM ON (M.MAIL_ID=MM.MAIL_ID) JOIN PERSON P ON (M.MAIL_ID=P.MAIL_ID) WHERE M.CURR_DATE=TO_CHAR(SYSDATE) AND MM.HALL_NAME=(SELECT HALL_NAME FROM PERSON WHERE MAIL_ID='"+mail_from_signin+"')";
 
-            con.execute(query,[],{autoCommit:true},function(e,s){
-                if(e){
-                    res.send(e);
-                }
-                else{
-                    res.send(s);
-                }
-            })
+//             con.execute(query,[],{autoCommit:true},function(e,s){
+//                 if(e){
+//                     res.send(e);
+//                 }
+//                 else{
+//                     res.send(s);
+//                 }
+//             })
             
-        }
-    });
+//         }
+//     });
 
-  });
+//   });
 
 
-  router.post('/reg-std-managersection', function(req, res, next) {
+//   router.post('/reg-std-managersection', function(req, res, next) {
 
-    //connect with db
-    var conString="(DESCRIPTION =(LOAD_BALANCE = ON)(FAILOVER = ON)(ADDRESS=(PROTOCOL = TCP)(HOST = 192.168.43.89)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = server2)(PORT = 1521)(CONNECT_DATA=(SERVICE_NAME=XE)(FAILOVER_MODE=(TYPE=SELECT)(METHOD =BASIC))))";
+//     //connect with db
+//     var conString="(DESCRIPTION =(LOAD_BALANCE = ON)(FAILOVER = ON)(ADDRESS=(PROTOCOL = TCP)(HOST = 192.168.43.89)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = server2)(PORT = 1521)(CONNECT_DATA=(SERVICE_NAME=XE)(FAILOVER_MODE=(TYPE=SELECT)(METHOD =BASIC))))";
 
-    oracledb.getConnection({
-        user:'C##HALL_MANAGEMENT',
-        password:'hall_management',
-        tns:conString
-    },function(err,con){
-        if(err)
-        {
-            res.send('db con error');
-        }
-        else{
-            var query="SELECT COUNT(*) FROM MESS_MANAGER WHERE MAIL_ID='"+mail_from_signin+"'";
+//     oracledb.getConnection({
+//         user:'C##HALL_MANAGEMENT',
+//         password:'hall_management',
+//         tns:conString
+//     },function(err,con){
+//         if(err)
+//         {
+//             res.send('db con error');
+//         }
+//         else{
+//             var query="SELECT COUNT(*) FROM MESS_MANAGER WHERE MAIL_ID='"+mail_from_signin+"'";
 
-            con.execute(query,[],{autoCommit:true},function(e,s){
-                if(e){
-                    res.send(e);
-                }
-                else{
-                    res.send(s);
-                }
-            })
+//             con.execute(query,[],{autoCommit:true},function(e,s){
+//                 if(e){
+//                     res.send(e);
+//                 }
+//                 else{
+//                     res.send(s);
+//                 }
+//             })
             
-        }
-    });
+//         }
+//     });
 
-  });
+//   });
 
 
-  router.post('/reg-std-managersetmenu', function(req, res, next) {
+//   router.post('/reg-std-managersetmenu', function(req, res, next) {
 
-    const {lunch,dinner}=req.body;
-    //insert into menu table
-    //connect with db
-    var conString="(DESCRIPTION =(LOAD_BALANCE = ON)(FAILOVER = ON)(ADDRESS=(PROTOCOL = TCP)(HOST = 192.168.43.89)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = server2)(PORT = 1521)(CONNECT_DATA=(SERVICE_NAME=XE)(FAILOVER_MODE=(TYPE=SELECT)(METHOD =BASIC))))";
+//     const {lunch,dinner}=req.body;
+//     //insert into menu table
+//     //connect with db
+//     var conString="(DESCRIPTION =(LOAD_BALANCE = ON)(FAILOVER = ON)(ADDRESS=(PROTOCOL = TCP)(HOST = 192.168.43.89)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = server2)(PORT = 1521)(CONNECT_DATA=(SERVICE_NAME=XE)(FAILOVER_MODE=(TYPE=SELECT)(METHOD =BASIC))))";
 
-    oracledb.getConnection({
-        user:'C##HALL_MANAGEMENT',
-        password:'hall_management',
-        tns:conString
-    },function(err,con){
-        if(err)
-        {
-            res.send('db con error');
-        }
-        else{
-            var query="DECLARE BEGIN SETMENU_PROCEDURE('"+mail_from_signin+"','"+lunch+"','"+dinner+"'); END;";
-            con.execute(query,[],{autoCommit:true},function(e,s){
-                if(e){
-                    res.send(e);
-                }
-                else{
-                    res.send(s);
-                }
-            })
+//     oracledb.getConnection({
+//         user:'C##HALL_MANAGEMENT',
+//         password:'hall_management',
+//         tns:conString
+//     },function(err,con){
+//         if(err)
+//         {
+//             res.send('db con error');
+//         }
+//         else{
+//             var query="DECLARE BEGIN SETMENU_PROCEDURE('"+mail_from_signin+"','"+lunch+"','"+dinner+"'); END;";
+//             con.execute(query,[],{autoCommit:true},function(e,s){
+//                 if(e){
+//                     res.send(e);
+//                 }
+//                 else{
+//                     res.send(s);
+//                 }
+//             })
             
-        }
-    });
+//         }
+//     });
 
-  });
+//   });
 
 
   //set filter
@@ -190,7 +190,7 @@ let searchwhat;
     //get the data from req
     const {orderby}=req.body;
     order_by_what=orderby;
-    console.log(order_by_what+"order by");
+    // console.log(order_by_what+"order by");
 
   });
 
@@ -911,37 +911,37 @@ let searchwhat;
 
 
   //show application for mess manager
-  router.post('/reg-std-stushowapplication', function(req, res, next) {
+//   router.post('/reg-std-stushowapplication', function(req, res, next) {
 
-    //connect with db
-    var conString="(DESCRIPTION =(LOAD_BALANCE = ON)(FAILOVER = ON)(ADDRESS=(PROTOCOL = TCP)(HOST = 192.168.43.89)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = server2)(PORT = 1521)(CONNECT_DATA=(SERVICE_NAME=XE)(FAILOVER_MODE=(TYPE=SELECT)(METHOD =BASIC))))";
+//     //connect with db
+//     var conString="(DESCRIPTION =(LOAD_BALANCE = ON)(FAILOVER = ON)(ADDRESS=(PROTOCOL = TCP)(HOST = 192.168.43.89)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = server2)(PORT = 1521)(CONNECT_DATA=(SERVICE_NAME=XE)(FAILOVER_MODE=(TYPE=SELECT)(METHOD =BASIC))))";
 
-    oracledb.getConnection({
-        user:'C##HALL_MANAGEMENT',
-        password:'hall_management',
-        tns:conString
-    },function(err,con){
-        if(err)
-        {
-            res.send('db con error');
-        }
-        else{
-            var query="SELECT STUDENT_ID,MESS_MONTH,STATE,DATE_TIME FROM APPLICATION WHERE S_MAILID='"+mail_from_signin+"' AND TYPE='manager' ORDER BY DATE_TIME";
+//     oracledb.getConnection({
+//         user:'C##HALL_MANAGEMENT',
+//         password:'hall_management',
+//         tns:conString
+//     },function(err,con){
+//         if(err)
+//         {
+//             res.send('db con error');
+//         }
+//         else{
+//             var query="SELECT STUDENT_ID,MESS_MONTH,STATE,DATE_TIME FROM APPLICATION WHERE S_MAILID='"+mail_from_signin+"' AND TYPE='manager' ORDER BY DATE_TIME";
             
-            con.execute(query,[],{autoCommit:true},function(e,s){
-                if(e){
-                    res.send(e);
-                }
-                else{
-                    res.send(s);
-                }
+//             con.execute(query,[],{autoCommit:true},function(e,s){
+//                 if(e){
+//                     res.send(e);
+//                 }
+//                 else{
+//                     res.send(s);
+//                 }
                 
-            })
+//             })
             
-        }
-    });
+//         }
+//     });
 
-  });
+//   });
 
 
   //show application for room
@@ -1011,37 +1011,38 @@ let searchwhat;
   });
 
 
-  router.post('/reg-std-officialshowapplication', function(req, res, next) {
+  
+//   router.post('/reg-std-officialshowapplication', function(req, res, next) {
 
-    //connect with db
-    var conString="(DESCRIPTION =(LOAD_BALANCE = ON)(FAILOVER = ON)(ADDRESS=(PROTOCOL = TCP)(HOST = 192.168.43.89)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = server2)(PORT = 1521)(CONNECT_DATA=(SERVICE_NAME=XE)(FAILOVER_MODE=(TYPE=SELECT)(METHOD =BASIC))))";
+//     //connect with db
+//     var conString="(DESCRIPTION =(LOAD_BALANCE = ON)(FAILOVER = ON)(ADDRESS=(PROTOCOL = TCP)(HOST = 192.168.43.89)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = server2)(PORT = 1521)(CONNECT_DATA=(SERVICE_NAME=XE)(FAILOVER_MODE=(TYPE=SELECT)(METHOD =BASIC))))";
 
-    oracledb.getConnection({
-        user:'C##HALL_MANAGEMENT',
-        password:'hall_management',
-        tns:conString
-    },function(err,con){
-        if(err)
-        {
-            res.send('db con error');
-        }
-        else{
-            var query="SELECT A.S_MAILID,STUDENT_ID,MESS_MONTH,STATE,DATE_TIME FROM PERSON P JOIN APPLICATION A ON (P.MAIL_ID = A.S_MAILID) WHERE P.HALL_NAME = (SELECT HALL_NAME FROM PERSON WHERE MAIL_ID='"+mail_from_signin+"') AND A.TYPE = 'manager' AND A.STATE='Processing' ORDER BY DATE_TIME";
+//     oracledb.getConnection({
+//         user:'C##HALL_MANAGEMENT',
+//         password:'hall_management',
+//         tns:conString
+//     },function(err,con){
+//         if(err)
+//         {
+//             res.send('db con error');
+//         }
+//         else{
+//             var query="SELECT A.S_MAILID,STUDENT_ID,MESS_MONTH,STATE,DATE_TIME FROM PERSON P JOIN APPLICATION A ON (P.MAIL_ID = A.S_MAILID) WHERE P.HALL_NAME = (SELECT HALL_NAME FROM PERSON WHERE MAIL_ID='"+mail_from_signin+"') AND A.TYPE = 'manager' AND A.STATE='Processing' ORDER BY DATE_TIME";
             
-            con.execute(query,[],{autoCommit:true},function(e,s){
-                if(e){
-                    res.send(e);
-                }
-                else{
-                    res.send(s);
-                }
+//             con.execute(query,[],{autoCommit:true},function(e,s){
+//                 if(e){
+//                     res.send(e);
+//                 }
+//                 else{
+//                     res.send(s);
+//                 }
                 
-            })
+//             })
             
-        }
-    });
+//         }
+//     });
 
-  });
+//   });
 
 
 

@@ -23,5 +23,5 @@ export async function signup(req, res, next) {
 
 
 signupRouter.post("/",signup)
-export {signupRouter};
+export default signupRouter;
 
