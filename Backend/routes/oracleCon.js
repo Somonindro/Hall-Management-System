@@ -1,62 +1,58 @@
-var express = require('express');
-const { STRING } = require('oracledb');
-var router = express.Router();
-var oracledb=require('oracledb');
 let mail_from_signin;
 let des_from;
 let order_by_what;
 let setroom;
 let searchbywhat;
 let searchwhat;
-router.post('/reg-std', function(req, res, next) {
+// router.post('/reg-std', function(req, res, next) {
 
-    //get the data from req
-    const {mail,pass}=req.body;
-    mail_from_signin = mail;//storing mail to a global variable
+//     // //get the data from req
+//     // const {mail,pass}=req.body;
+//     // mail_from_signin = mail;//storing mail to a global variable
 
-    //connect with db
-    var conString="(DESCRIPTION =(LOAD_BALANCE = ON)(FAILOVER = ON)(ADDRESS=(PROTOCOL = TCP)(HOST = 192.168.43.89)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = server2)(PORT = 1521)(CONNECT_DATA=(SERVICE_NAME=XE)(FAILOVER_MODE=(TYPE=SELECT)(METHOD =BASIC))))";
+//     //connect with db
+//     var conString="(DESCRIPTION =(LOAD_BALANCE = ON)(FAILOVER = ON)(ADDRESS=(PROTOCOL = TCP)(HOST = 192.168.43.89)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = server2)(PORT = 1521)(CONNECT_DATA=(SERVICE_NAME=XE)(FAILOVER_MODE=(TYPE=SELECT)(METHOD =BASIC))))";
 
-    oracledb.getConnection({
-        user:'C##HALL_MANAGEMENT',
-        password:'hall_management',
-        tns:conString
-    },function(err,con){
-        if(err)
-        {
-            res.send('db con error');
-        }
-        else{
-            var query="SELECT PASSWORD FROM PERSON WHERE MAIL_ID = '" + mail + "'";
+//     oracledb.getConnection({
+//         user:'C##HALL_MANAGEMENT',
+//         password:'hall_management',
+//         tns:conString
+//     },function(err,con){
+//         if(err)
+//         {
+//             res.send('db con error');
+//         }
+//         else{
+//             var query="SELECT PASSWORD FROM PERSON WHERE MAIL_ID = '" + mail + "'";
 
-            con.execute(query,[],{autoCommit:true},function(e,s){
-                if(e){
-                    res.send(e);
-                }
-                else{
-                    res.send(s);
-                }
-                console.log(s);
-                console.log(s.rows.length);
-                if (s.rows.length != 0) {
-                    console.log(s.rows[0]);
-                    const obj = JSON.stringify(s.rows[0]);
-                    console.log(obj.substring(2, obj.length - 2));
-                    if (obj.substring(2, obj.length - 2) == pass) {
-                        console.log("Done.");
-                        console.log(pass);
-                    }
-                    else{
-                        console.log("Not done.");
-                        console.log(pass);
-                    }
-                }
-            })
+//             con.execute(query,[],{autoCommit:true},function(e,s){
+//                 if(e){
+//                     res.send(e);
+//                 }
+//                 else{
+//                     res.send(s);
+//                 }
+//                 console.log(s);
+//                 console.log(s.rows.length);
+//                 if (s.rows.length != 0) {
+//                     console.log(s.rows[0]);
+//                     const obj = JSON.stringify(s.rows[0]);
+//                     console.log(obj.substring(2, obj.length - 2));
+//                     if (obj.substring(2, obj.length - 2) == pass) {
+//                         console.log("Done.");
+//                         console.log(pass);
+//                     }
+//                     else{
+//                         console.log("Not done.");
+//                         console.log(pass);
+//                     }
+//                 }
+//             })
             
-        }
-    });
+//         }
+//     });
 
-  });
+//   });
 
 
   router.post('/reg-std-dininghistory', function(req, res, next) {
@@ -242,39 +238,39 @@ router.post('/reg-std', function(req, res, next) {
 
 
 
-  router.post('/reg-std-signup', function(req, res, next) {
+//   router.post('/reg-std-signup', function(req, res, next) {
 
-    //get the data from req
-    const {mail,pass,hall,type,name,roll}=req.body;
+//     //get the data from req
+//     const {mail,pass,hall,type,name,roll}=req.body;
 
-    //connect with db
-    var conString="(DESCRIPTION =(LOAD_BALANCE = ON)(FAILOVER = ON)(ADDRESS=(PROTOCOL = TCP)(HOST = 192.168.43.89)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = server2)(PORT = 1521)(CONNECT_DATA=(SERVICE_NAME=XE)(FAILOVER_MODE=(TYPE=SELECT)(METHOD =BASIC))))";
+//     //connect with db
+//     var conString="(DESCRIPTION =(LOAD_BALANCE = ON)(FAILOVER = ON)(ADDRESS=(PROTOCOL = TCP)(HOST = 192.168.43.89)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = server2)(PORT = 1521)(CONNECT_DATA=(SERVICE_NAME=XE)(FAILOVER_MODE=(TYPE=SELECT)(METHOD =BASIC))))";
 
-    oracledb.getConnection({
-        user:'C##HALL_MANAGEMENT',
-        password:'hall_management',
-        tns:conString
-    },function(err,con){
-        if(err)
-        {
-            res.send('db con error');
-        }
-        else{
+//     oracledb.getConnection({
+//         user:'C##HALL_MANAGEMENT',
+//         password:'hall_management',
+//         tns:conString
+//     },function(err,con){
+//         if(err)
+//         {
+//             res.send('db con error');
+//         }
+//         else{
 
-            var query="INSERT INTO APPROVAL VALUES ('"+mail+"','"+pass+"','"+type+"','"+hall+"','"+roll+"','"+name+"')";
-            con.execute(query,[],{autoCommit:true},function(e,s){
-                if(e){
-                    res.send(e);
-                }
-                else{
-                    res.send(s);
-                }
-            })
+//             var query="INSERT INTO APPROVAL VALUES ('"+mail+"','"+pass+"','"+type+"','"+hall+"','"+roll+"','"+name+"')";
+//             con.execute(query,[],{autoCommit:true},function(e,s){
+//                 if(e){
+//                     res.send(e);
+//                 }
+//                 else{
+//                     res.send(s);
+//                 }
+//             })
 
-        }
-    });
+//         }
+//     });
 
-  });
+//   });
 
 
 
