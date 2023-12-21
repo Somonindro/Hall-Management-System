@@ -9,6 +9,8 @@ import managerApplicationStuRouter from "../src/StudentApplication/for_mess_mana
 import roomApplicationStuRouter from "../src/StudentApplication/for_room";
 import updateStuRouter from "../src/StudentApplication/update_info";
 import complainStuRouter from "../src/StudentApplication/complain";
+import applyForRoomStuRouter from "../src/StudentApplication/apply_room";
+import checkComplainStuRouter from "../src/StudentApplication/check_complain_status";
 
 import managerApplicationOffRouter from "../src/OfficialApplication/show_manager_application";
 import roomApplicationOffRouter from "../src/OfficialApplication/show_room_application";
@@ -16,6 +18,9 @@ import selectManagerOffRouter from "../src/OfficialApplication/select_manager";
 import cancelManagerOffRouter from "../src/OfficialApplication/cancel_manager_application";
 import approveRoomOffRouter from "../src/OfficialApplication/approve_room_application";
 import cancelRoomOffRouter from "../src/OfficialApplication/cancel_room_application";
+
+import showVacantOffRouter from "../src/Official/show_vacant_room";
+import showRoomsOffRouter from "../src/Official/show_rooms";
 
 const router = express.Router();
 
@@ -29,6 +34,8 @@ router.use("/reg-std-stushowapplication", managerApplicationStuRouter);
 router.use("/reg-std-stushowroomapplication", roomApplicationStuRouter);
 router.use("/reg-std-updatestu", updateStuRouter);
 router.use("/reg-std-stucomplain", complainStuRouter);
+router.use("/reg-std-stuapplication", applyForRoomStuRouter);
+router.use("/reg-std-stushowcomplain", checkComplainStuRouter);
 
 router.use("/reg-std-officialshowapplication", managerApplicationOffRouter);
 router.use("/reg-std-officialshowroomapp", roomApplicationOffRouter);
@@ -36,6 +43,9 @@ router.use("/reg-std-offshowfinalmanagerappyes", selectManagerOffRouter);
 router.use("/reg-std-offshowfinalmanagerappno", cancelManagerOffRouter);
 router.use("/reg-std-offshowfinalroomappyes", approveRoomOffRouter);
 router.use("/reg-std-offshowfinalroomappno", cancelRoomOffRouter);
+
+router.use("/reg-std-officialshowvacantroom", showVacantOffRouter);
+router.use("/reg-std-officialshowroom", showRoomsOffRouter);
 
 
 module.exports = router;
