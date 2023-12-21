@@ -1,12 +1,12 @@
 import connection  from "../oracleConnection";
 import { mail_from_signin } from "../Authorization/auth";
 import express from 'express'
-const setMenuRouter = express.Router();
+const roomApplicationStuRouter = express.Router();
 
-export async function setMenu(req, res, next) {
+export async function roomApplication(req, res, next) {
     try {
-        const {lunch,dinner}=req.body;
-        var query="DECLARE BEGIN SETMENU_PROCEDURE('"+mail_from_signin+"','"+lunch+"','"+dinner+"'); END;";
+        var query=`SELECT STUDENT_ID,NEW_ROOM,STATE,DATE_TIME FROM APPLICATION 
+            WHERE S_MAILID='`+mail_from_signin+`' AND TYPE='room' ORDER BY DATE_TIME`;           
         connection.execute(query,[],{autoCommit:true},function(e,s){
             if(e){
                 res.send(e);
@@ -14,12 +14,12 @@ export async function setMenu(req, res, next) {
             else{
                 res.send(s);
             }
+            
         })
-        
     } catch (err) {
         next(err)
     }
 }
 
-setMenuRouter.post("/",setMenu)
-export default setMenuRouter;
+roomApplicationStuRouter.get("/",roomApplication)
+export default roomApplicationStuRouter;

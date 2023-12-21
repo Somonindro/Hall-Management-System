@@ -440,42 +440,6 @@ let searchwhat;
   });
 
 
-  router.post('/reg-std-stucomplain', function(req, res, next) {
-
-    const {roll,room,des}=req.body;
-    // console.log(des);
-
-    //connect with db
-    var conString="(DESCRIPTION =(LOAD_BALANCE = ON)(FAILOVER = ON)(ADDRESS=(PROTOCOL = TCP)(HOST = 192.168.43.89)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = server2)(PORT = 1521)(CONNECT_DATA=(SERVICE_NAME=XE)(FAILOVER_MODE=(TYPE=SELECT)(METHOD =BASIC))))";
-
-    oracledb.getConnection({
-        user:'C##HALL_MANAGEMENT',
-        password:'hall_management',
-        tns:conString
-    },function(err,con){
-        if(err)
-        {
-            res.send('db con error');
-        }
-        else{
-            
-            var query="DECLARE BEGIN COMPLAIN_PROCEDURE('"+mail_from_signin+"','"+roll+"','"+room+"','"+des+"'); END;";
-            con.execute(query,[],{autoCommit:true},function(e,s){
-                if(e){
-                    res.send(e);
-                }
-                else{
-                    res.send(s);
-                }
-                
-            })
-            
-        }
-    });
-
-  });
-
-
 
   router.post('/reg-std-showcomplain', function(req, res, next) {
 
@@ -643,77 +607,6 @@ let searchwhat;
         else{
             //var query="INSERT INTO APPLICATION VALUES ('"+mail_from_signin+"','"+type+"','"+newroom+"','"+month+"','"+roll+"','Processing',SYSDATE)";
             var query="DECLARE BEGIN APPLICATION_PROCEDURE('"+mail_from_signin+"','"+type+"','"+newroom+"','"+month+"','"+roll+"'); END;";
-            con.execute(query,[],{autoCommit:true},function(e,s){
-                if(e){
-                    res.send(e);
-                }
-                else{
-                    res.send(s);
-                }
-                
-            })
-            
-        }
-    });
-
-  });
-
-
-
-
-  router.post('/reg-std-updatestu', function(req, res, next) {
-
-    const {name,roll,level,term,blood} =req.body;
-
-    //connect with db
-    var conString="(DESCRIPTION =(LOAD_BALANCE = ON)(FAILOVER = ON)(ADDRESS=(PROTOCOL = TCP)(HOST = 192.168.43.89)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = server2)(PORT = 1521)(CONNECT_DATA=(SERVICE_NAME=XE)(FAILOVER_MODE=(TYPE=SELECT)(METHOD =BASIC))))";
-
-    oracledb.getConnection({
-        user:'C##HALL_MANAGEMENT',
-        password:'hall_management',
-        tns:conString
-    },function(err,con){
-        if(err)
-        {
-            res.send('db con error');
-        }
-        else{
-            var query="DECLARE BEGIN UPDATESTU_PROCEDURE('"+mail_from_signin+"','"+name+"','"+roll+"','"+level+"','"+term+"','"+blood+"'); END;";
-            
-            con.execute(query,[],{autoCommit:true},function(e,s){
-                if(e){
-                    res.send(e);
-                }
-                else{
-                    res.send(s);
-                }
-                
-            })
-            
-        }
-    });
-
-  });
-
-
-  //show application for room
-  router.post('/reg-std-stushowroomapplication', function(req, res, next) {
-
-    //connect with db
-    var conString="(DESCRIPTION =(LOAD_BALANCE = ON)(FAILOVER = ON)(ADDRESS=(PROTOCOL = TCP)(HOST = 192.168.43.89)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = server2)(PORT = 1521)(CONNECT_DATA=(SERVICE_NAME=XE)(FAILOVER_MODE=(TYPE=SELECT)(METHOD =BASIC))))";
-
-    oracledb.getConnection({
-        user:'C##HALL_MANAGEMENT',
-        password:'hall_management',
-        tns:conString
-    },function(err,con){
-        if(err)
-        {
-            res.send('db con error');
-        }
-        else{
-            var query="SELECT STUDENT_ID,NEW_ROOM,STATE,DATE_TIME FROM APPLICATION WHERE S_MAILID='"+mail_from_signin+"' AND TYPE='room' ORDER BY DATE_TIME";
-            
             con.execute(query,[],{autoCommit:true},function(e,s){
                 if(e){
                     res.send(e);

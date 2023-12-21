@@ -21,5 +21,5 @@ export async function managerApplication(req, res, next) {
     }
 }
 
-managerApplicationStuRouter.put("/",managerApplication)
+managerApplicationStuRouter.get("/",managerApplication)
 export default managerApplicationStuRouter;

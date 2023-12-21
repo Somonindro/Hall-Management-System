@@ -1,12 +1,12 @@
 import connection  from "../oracleConnection";
 import { mail_from_signin } from "../Authorization/auth";
 import express from 'express'
-const setMenuRouter = express.Router();
+const complainStuRouter = express.Router();
 
-export async function setMenu(req, res, next) {
+export async function complain(req, res, next) {
     try {
-        const {lunch,dinner}=req.body;
-        var query="DECLARE BEGIN SETMENU_PROCEDURE('"+mail_from_signin+"','"+lunch+"','"+dinner+"'); END;";
+        const {roll,room,des}=req.body;
+        var query="DECLARE BEGIN COMPLAIN_PROCEDURE('"+mail_from_signin+"','"+roll+"','"+room+"','"+des+"'); END;";
         connection.execute(query,[],{autoCommit:true},function(e,s){
             if(e){
                 res.send(e);
@@ -14,12 +14,12 @@ export async function setMenu(req, res, next) {
             else{
                 res.send(s);
             }
+            
         })
-        
     } catch (err) {
         next(err)
     }
 }
 
-setMenuRouter.post("/",setMenu)
-export default setMenuRouter;
+complainStuRouter.post("/",complain)
+export default complainStuRouter;

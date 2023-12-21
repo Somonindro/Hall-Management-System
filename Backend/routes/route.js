@@ -6,6 +6,10 @@ import diningManagerRouter from "../src/Dining/mess_manager";
 import isManagerRouter from "../src/Dining/is_manager";
 import setMenuRouter from "../src/Dining/set_menu";
 import managerApplicationStuRouter from "../src/StudentApplication/for_mess_manager";
+import roomApplicationStuRouter from "../src/StudentApplication/for_room";
+import updateStuRouter from "../src/StudentApplication/update_info";
+import complainStuRouter from "../src/StudentApplication/complain";
+
 import managerApplicationOffRouter from "../src/OfficialApplication/show_manager_application";
 import roomApplicationOffRouter from "../src/OfficialApplication/show_room_application";
 import selectManagerOffRouter from "../src/OfficialApplication/select_manager";
@@ -22,6 +26,10 @@ router.use("/reg-std-studining", diningManagerRouter);
 router.use("/reg-std-managersection", isManagerRouter);
 router.use("/reg-std-managersetmenu", setMenuRouter);
 router.use("/reg-std-stushowapplication", managerApplicationStuRouter);
+router.use("/reg-std-stushowroomapplication", roomApplicationStuRouter);
+router.use("/reg-std-updatestu", updateStuRouter);
+router.use("/reg-std-stucomplain", complainStuRouter);
+
 router.use("/reg-std-officialshowapplication", managerApplicationOffRouter);
 router.use("/reg-std-officialshowroomapp", roomApplicationOffRouter);
 router.use("/reg-std-offshowfinalmanagerappyes", selectManagerOffRouter);
