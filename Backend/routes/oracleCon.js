@@ -1011,74 +1011,6 @@ let searchwhat;
   });
 
 
-  
-//   router.post('/reg-std-officialshowapplication', function(req, res, next) {
-
-//     //connect with db
-//     var conString="(DESCRIPTION =(LOAD_BALANCE = ON)(FAILOVER = ON)(ADDRESS=(PROTOCOL = TCP)(HOST = 192.168.43.89)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = server2)(PORT = 1521)(CONNECT_DATA=(SERVICE_NAME=XE)(FAILOVER_MODE=(TYPE=SELECT)(METHOD =BASIC))))";
-
-//     oracledb.getConnection({
-//         user:'C##HALL_MANAGEMENT',
-//         password:'hall_management',
-//         tns:conString
-//     },function(err,con){
-//         if(err)
-//         {
-//             res.send('db con error');
-//         }
-//         else{
-//             var query="SELECT A.S_MAILID,STUDENT_ID,MESS_MONTH,STATE,DATE_TIME FROM PERSON P JOIN APPLICATION A ON (P.MAIL_ID = A.S_MAILID) WHERE P.HALL_NAME = (SELECT HALL_NAME FROM PERSON WHERE MAIL_ID='"+mail_from_signin+"') AND A.TYPE = 'manager' AND A.STATE='Processing' ORDER BY DATE_TIME";
-            
-//             con.execute(query,[],{autoCommit:true},function(e,s){
-//                 if(e){
-//                     res.send(e);
-//                 }
-//                 else{
-//                     res.send(s);
-//                 }
-                
-//             })
-            
-//         }
-//     });
-
-//   });
-
-
-
-  router.post('/reg-std-officialshowroomapp', function(req, res, next) {
-
-    //connect with db
-    var conString="(DESCRIPTION =(LOAD_BALANCE = ON)(FAILOVER = ON)(ADDRESS=(PROTOCOL = TCP)(HOST = 192.168.43.89)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = server2)(PORT = 1521)(CONNECT_DATA=(SERVICE_NAME=XE)(FAILOVER_MODE=(TYPE=SELECT)(METHOD =BASIC))))";
-
-    oracledb.getConnection({
-        user:'C##HALL_MANAGEMENT',
-        password:'hall_management',
-        tns:conString
-    },function(err,con){
-        if(err)
-        {
-            res.send('db con error');
-        }
-        else{
-            var query="SELECT A.S_MAILID,STUDENT_ID,NEW_ROOM,STATE,DATE_TIME FROM PERSON P JOIN APPLICATION A ON (P.MAIL_ID = A.S_MAILID) WHERE P.HALL_NAME = (SELECT HALL_NAME FROM PERSON WHERE MAIL_ID='"+mail_from_signin+"') AND A.TYPE = 'room' AND A.STATE='Processing' ORDER BY DATE_TIME";
-            
-            con.execute(query,[],{autoCommit:true},function(e,s){
-                if(e){
-                    res.send(e);
-                }
-                else{
-                    res.send(s);
-                }
-                
-            })
-            
-        }
-    });
-
-  });
-
-
   router.post('/reg-std-offshowfinalroomappyes', function(req, res, next) {
 
     const {mail,room} =req.body;
@@ -1154,76 +1086,76 @@ let searchwhat;
 
 
 
-  router.post('/reg-std-offshowfinalmanagerappyes', function(req, res, next) {
+//   router.post('/reg-std-offshowfinalmanagerappyes', function(req, res, next) {
 
-    const {mail,month} =req.body;
+//     const {mail,month} =req.body;
 
-    //connect with db
-    var conString="(DESCRIPTION =(LOAD_BALANCE = ON)(FAILOVER = ON)(ADDRESS=(PROTOCOL = TCP)(HOST = 192.168.43.89)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = server2)(PORT = 1521)(CONNECT_DATA=(SERVICE_NAME=XE)(FAILOVER_MODE=(TYPE=SELECT)(METHOD =BASIC))))";
+//     //connect with db
+//     var conString="(DESCRIPTION =(LOAD_BALANCE = ON)(FAILOVER = ON)(ADDRESS=(PROTOCOL = TCP)(HOST = 192.168.43.89)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = server2)(PORT = 1521)(CONNECT_DATA=(SERVICE_NAME=XE)(FAILOVER_MODE=(TYPE=SELECT)(METHOD =BASIC))))";
 
-    oracledb.getConnection({
-        user:'C##HALL_MANAGEMENT',
-        password:'hall_management',
-        tns:conString
-    },function(err,con){
-        if(err)
-        {
-            res.send('db con error');
-        }
-        else{
-            var query="DECLARE BEGIN APPROVE_MANAGER_PROCEDURE('"+mail+"','"+month+"'); END;";
-            con.execute(query,[],{autoCommit:true},function(e,s){
-                if(e){
-                    res.send(e);
-                }
-                else{
-                    res.send(s);
-                }
+//     oracledb.getConnection({
+//         user:'C##HALL_MANAGEMENT',
+//         password:'hall_management',
+//         tns:conString
+//     },function(err,con){
+//         if(err)
+//         {
+//             res.send('db con error');
+//         }
+//         else{
+//             var query="DECLARE BEGIN APPROVE_MANAGER_PROCEDURE('"+mail+"','"+month+"'); END;";
+//             con.execute(query,[],{autoCommit:true},function(e,s){
+//                 if(e){
+//                     res.send(e);
+//                 }
+//                 else{
+//                     res.send(s);
+//                 }
                 
-            })
+//             })
 
-            // var query="UPDATE APPLICATION SET STATE='Approved' WHERE S_MAILID='"+mail+"' AND MESS_MONTH='"+month+"'";
-            // var query1="UPDATE APPLICATION SET STATE='Expired' WHERE TYPE='manager' AND S_MAILID<>'"+mail+"' AND HALL_NAME=(SELECT HALL_NAME FROM PERSON WHERE MAIL_ID='"+mail_from_signin+"')";
-            // con.execute(query1,[],{autoCommit:true})
+//             // var query="UPDATE APPLICATION SET STATE='Approved' WHERE S_MAILID='"+mail+"' AND MESS_MONTH='"+month+"'";
+//             // var query1="UPDATE APPLICATION SET STATE='Expired' WHERE TYPE='manager' AND S_MAILID<>'"+mail+"' AND HALL_NAME=(SELECT HALL_NAME FROM PERSON WHERE MAIL_ID='"+mail_from_signin+"')";
+//             // con.execute(query1,[],{autoCommit:true})
             
-        }
-    });
+//         }
+//     });
 
-  });
+//   });
 
-  router.post('/reg-std-offshowfinalmanagerappno', function(req, res, next) {
+//   router.post('/reg-std-offshowfinalmanagerappno', function(req, res, next) {
 
-    const {mail,month} =req.body;
+//     const {mail,month} =req.body;
 
-    //connect with db
-    var conString="(DESCRIPTION =(LOAD_BALANCE = ON)(FAILOVER = ON)(ADDRESS=(PROTOCOL = TCP)(HOST = 192.168.43.89)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = server2)(PORT = 1521)(CONNECT_DATA=(SERVICE_NAME=XE)(FAILOVER_MODE=(TYPE=SELECT)(METHOD =BASIC))))";
+//     //connect with db
+//     var conString="(DESCRIPTION =(LOAD_BALANCE = ON)(FAILOVER = ON)(ADDRESS=(PROTOCOL = TCP)(HOST = 192.168.43.89)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = server2)(PORT = 1521)(CONNECT_DATA=(SERVICE_NAME=XE)(FAILOVER_MODE=(TYPE=SELECT)(METHOD =BASIC))))";
 
-    oracledb.getConnection({
-        user:'C##HALL_MANAGEMENT',
-        password:'hall_management',
-        tns:conString
-    },function(err,con){
-        if(err)
-        {
-            res.send('db con error');
-        }
-        else{
-            var query="UPDATE APPLICATION SET STATE='Failed' WHERE S_MAILID='"+mail+"' AND MESS_MONTH='"+month+"'";
+//     oracledb.getConnection({
+//         user:'C##HALL_MANAGEMENT',
+//         password:'hall_management',
+//         tns:conString
+//     },function(err,con){
+//         if(err)
+//         {
+//             res.send('db con error');
+//         }
+//         else{
+//             var query="UPDATE APPLICATION SET STATE='Failed' WHERE S_MAILID='"+mail+"' AND MESS_MONTH='"+month+"'";
             
-            con.execute(query,[],{autoCommit:true},function(e,s){
-                if(e){
-                    res.send(e);
-                }
-                else{
-                    res.send(s);
-                }
+//             con.execute(query,[],{autoCommit:true},function(e,s){
+//                 if(e){
+//                     res.send(e);
+//                 }
+//                 else{
+//                     res.send(s);
+//                 }
                 
-            })
+//             })
             
-        }
-    });
+//         }
+//     });
 
-  });
+//   });
 
   
   

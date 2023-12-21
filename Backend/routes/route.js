@@ -7,6 +7,9 @@ import isManagerRouter from "../src/Dining/is_manager";
 import setMenuRouter from "../src/Dining/set_menu";
 import managerApplicationStuRouter from "../src/StudentApplication/for_mess_manager";
 import managerApplicationOffRouter from "../src/OfficialApplication/show_manager_application";
+import roomApplicationOffRouter from "../src/OfficialApplication/show_room_application";
+import selectManagerOffRouter from "../src/OfficialApplication/select_manager";
+import cancelManagerOffRouter from "../src/OfficialApplication/cancel_manager_application";
 
 const router = express.Router();
 
@@ -18,6 +21,9 @@ router.use("/reg-std-managersection", isManagerRouter);
 router.use("/reg-std-managersetmenu", setMenuRouter);
 router.use("/reg-std-stushowapplication", managerApplicationStuRouter);
 router.use("/reg-std-officialshowapplication", managerApplicationOffRouter);
+router.use("/reg-std-officialshowroomapp", roomApplicationOffRouter);
+router.use("/reg-std-offshowfinalmanagerappyes", selectManagerOffRouter);
+router.use("/reg-std-offshowfinalmanagerappno", cancelManagerOffRouter);
 
 
 module.exports = router;
