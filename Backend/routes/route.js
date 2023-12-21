@@ -22,6 +22,10 @@ import cancelRoomOffRouter from "../src/OfficialApplication/cancel_room_applicat
 import showVacantOffRouter from "../src/Official/show_vacant_room";
 import showRoomsOffRouter from "../src/Official/show_rooms";
 
+import orderByRouter from "../src/Filter/order_by";
+import setRoomRouter from "../src/Filter/set_room";
+import searchRouter from "../src/Filter/search";
+
 const router = express.Router();
 
 router.use("/reg-std", authRouter);
@@ -47,5 +51,11 @@ router.use("/reg-std-offshowfinalroomappno", cancelRoomOffRouter);
 router.use("/reg-std-officialshowvacantroom", showVacantOffRouter);
 router.use("/reg-std-officialshowroom", showRoomsOffRouter);
 
+router.use("/reg-std-stufirst", orderByRouter);
+router.use("/reg-std-setroomno", setRoomRouter);
+router.use("/reg-std-search", searchRouter);
+
 
 module.exports = router;
+
+

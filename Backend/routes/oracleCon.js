@@ -1,31 +1,6 @@
 let mail_from_signin;
 let des_from;
-let order_by_what;
-let setroom;
-let searchbywhat;
-let searchwhat;
 
-
-  //set filter
-  router.post('/reg-std-stufirst', function(req, res, next) {
-
-    //get the data from req
-    const {orderby}=req.body;
-    order_by_what=orderby;
-    // console.log(order_by_what+"order by");
-
-  });
-
-
-  //set room no you want to show
-  router.post('/reg-std-setroomno', function(req, res, next) {
-
-    //get the data from req
-    const {room}=req.body;
-    setroom=room;
-    console.log(setroom+"room");
-
-  });
 
   router.post('/reg-std-offroomdetails', function(req, res, next) {
 
@@ -89,18 +64,6 @@ let searchwhat;
             
         }
     });
-
-  });
-
-
-
-
-  router.post('/reg-std-search', function(req, res, next) {
-
-    //get the data from req
-    const {searchby,searchdata}=req.body;
-    searchbywhat=searchby;
-    searchwhat=searchdata;
 
   });
 
