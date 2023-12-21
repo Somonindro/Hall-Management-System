@@ -25,5 +25,5 @@ export async function showRoomApplication(req, res, next) {
     }
 }
 
-roomApplicationOffRouter.put("/",showRoomApplication)
+roomApplicationOffRouter.get("/",showRoomApplication)
 export default roomApplicationOffRouter;

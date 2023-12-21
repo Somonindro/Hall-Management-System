@@ -25,5 +25,5 @@ export async function showManagerApplication(req, res, next) {
     }
 }
 
-managerApplicationOffRouter.put("/",showManagerApplication)
+managerApplicationOffRouter.get("/",showManagerApplication)
 export default managerApplicationOffRouter;
