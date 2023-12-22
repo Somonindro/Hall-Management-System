@@ -1,4 +1,4 @@
-import './StuApplicationPage.css';
+import '../Styles/StuApplicationPage.css';
 import { useState } from 'react';
 import {Route, Path, Link} from 'react-router-dom';
 

@@ -1,4 +1,4 @@
-import './OffRoomDetails.css';
+import '../Styles/OffRoomDetails.css';
 import React, { useState, useEffect } from "react";
 import {Route, Path, Link, useLocation} from 'react-router-dom';
 

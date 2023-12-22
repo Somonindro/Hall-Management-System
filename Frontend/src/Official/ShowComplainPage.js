@@ -1,8 +1,8 @@
-import './OfficialShowRoom.css';
+import '../Styles/ApprovalPage.css';
 import React, { useState, useEffect } from "react";
 import {Route, Path, Link, useLocation} from 'react-router-dom';
 
-function OfficialShowRoom(){
+function ShowComplainPage(){
     const [data, setData] = useState([]);
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
@@ -10,7 +10,7 @@ function OfficialShowRoom(){
 
     useEffect(() => {
         async function fetchData() {
-          fetch("http://localhost:2020/oracle-con/reg-std-officialshowroom",{
+          fetch("http://localhost:2020/oracle-con/reg-std-showcomplain",{
           method:'post',
           body: JSON.stringify(data),
           headers:{
@@ -36,38 +36,30 @@ function OfficialShowRoom(){
       if (error) return <div>Error: {error.message}</div>;
       if (!isLoaded) return <div>...loading</div>;
 
-
-
-
     
   return (
     
-        
 
-    <div class="offshowroom">
-    
-    <h3>ROOM LIST</h3>
-  
-        <div>
+        <div class="container">
         
-        
-        <br>
-        </br>
         <table className='table-app'>
             <tbody>
             <tr>
+                <th className='th-app'>MAIL ID</th>
+                <th className='th-app'>STUDENT ID</th>
                 <th className='th-app'>ROOM NO</th>
-                <th className='th-app'>FLOOR</th>
-                <th className='th-app'>CAPACITY</th>
-                <th className='th-app'>TOTAL STUDENT</th>
-                <th className='th-app'></th>
+                
+                <th className='th-app'>DESCRIPTION</th>
+                <th className='th-app'>STATE</th>
+                <th className='th-app'>HALL NAME</th>
             </tr>
             {data.rows.map(animal => (
             <tr>{animal.map(x =>( 
             <td className='td-app'>{x}</td>
             )
-            )}<td><Link to="/offroomdetails" state={{from:animal}}><button className='app-button'>Show</button></Link></td>
+            )}<td><Link to="/showcomemployee" state={{from:animal}}><button className='app-button'>SHOW</button></Link></td>
             </tr>
+            
             
             ))}
             
@@ -75,9 +67,7 @@ function OfficialShowRoom(){
         </table> 
 
         </div>
-
-        </div>
   );
 }
 
-export default OfficialShowRoom;
+export default ShowComplainPage;

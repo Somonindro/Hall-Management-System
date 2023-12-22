@@ -1,5 +1,5 @@
 import React from 'react';
-import './SignupPage.css';
+import '../Styles/SignupPage.css';
 import { useState } from 'react';
 import {Route, Path, Link} from 'react-router-dom';
 

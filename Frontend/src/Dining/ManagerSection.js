@@ -1,4 +1,4 @@
-import './ManagerSection.css';
+import '../Styles/ManagerSection.css'
 import React, { useState, useEffect } from "react";
 import {Route, Path, Link, useLocation} from 'react-router-dom';
 

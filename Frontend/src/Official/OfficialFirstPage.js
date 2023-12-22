@@ -1,11 +1,11 @@
-import './StuFirstPage.css';
+import '../Styles/OfficialFirstPage.css';
 import React, { useState, useEffect } from "react";
 import {Route, Path, Link, useLocation} from 'react-router-dom';
 
 	
-function StuFirstPage(){
+function OfficialFirstPage(){
 
-    const set=(r)=>{
+	const set=(r)=>{
         setT(r.target.value);
         setData({...data, 'orderby':r.target.value});
     }
@@ -28,13 +28,14 @@ function StuFirstPage(){
     
   }
 
-    const [data1, setData1] = useState([]);
+
+	const [data1, setData1] = useState([]);
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
 
 	useEffect(() => {
 		async function fetchData() {
-		  fetch("http://localhost:2020/oracle-con/reg-std-sfirstpage",{
+		  fetch("http://localhost:2020/oracle-con/reg-std-ofirstpage",{
 		  method:'post',
 		  body: JSON.stringify(data1),
 		  headers:{
@@ -60,84 +61,60 @@ function StuFirstPage(){
 	  if (error) return <div>Error: {error.message}</div>;
   	  if (!isLoaded) return <div>...loading</div>;
 
-
-
-
 	return (
-		<div className='divouter'>
+		<div>
             <nav className="navbar">
 			
 			
 			<ul className="nav-links active">
 				
 				<li className="nav-item">
-					<Link to="/official" className="nav-link" >
-						Official List
+					<Link to="/approval" className="nav-link" >
+						Approval List
 					</Link>
 				</li>
 				<li className="nav-item">
-					<Link to="/employee" className="nav-link" >
-						Employees List
-					</Link>
-				</li>
-				<li className="nav-item">
-					<Link to="/stucomplain" className="nav-link" >
+					<Link to="/showcomplain" className="nav-link" >
 						Complains
 					</Link>
 				</li>
 				<li className="nav-item">
-					<Link to="/stuapplication" className="nav-link" >
-						Applications
+					<Link to="/officialshowapplication" className="nav-link" >
+						Manager Applications
 					</Link>
 				</li>
-                <li className="nav-item">
+				<li className="nav-item">
+					<Link to="/officialshowroomapp" className="nav-link" >
+						Room Applications
+					</Link>
+				</li>
+				<li className="nav-item">
 					<Link to="/officialshowroom" className="nav-link" >
 						Rooms
 					</Link>
 				</li>
-                <li className="nav-item">
+				<li className="nav-item">
 					<Link to="/officialshowvacantroom" className="nav-link" >
-						Vacant Rooms
+						Vacant Room
 					</Link>
 				</li>
 			</ul>
 		</nav>
-
-        <div className='stufirstdiv'>
-		
-
-        <h1>Student Home Page </h1>
+		<div className='divClasss'>
+		<br>
+		</br>
+		<br>
+		</br>
+        <h1>Official Home Page </h1>
 		<br>
 		</br>
 
-        {
-            data1.rows[0]==null &&
-            <div>
-                <h3>Your request is under processing. </h3>
-                <h3>An official will approve you soon.</h3>
-            </div>
-        }
+		<h3>NAME  : {data1.rows[0][0]}</h3>
+		<h3>MAIL  : {data1.rows[0][1]}</h3>
+		<h3>HALL  : {data1.rows[0][2]}</h3>
+		<h3>POST  : {data1.rows[0][3]}</h3>
 
-        {
-            data1.rows[0]!=null &&
-            <div>
-                <h3>NAME  : {data1.rows[0][0]}</h3>
-                <h3>MAIL  : {data1.rows[0][1]}</h3>
-                <h3>HALL  : {data1.rows[0][2]}</h3>
-                <h3>ROLL  : {data1.rows[0][3]}</h3>
-                <h3>LEVEL  : {data1.rows[0][4]}</h3>
-                <h3>TERM  : {data1.rows[0][5]}</h3>
-                <h3>BLOOD  : {data1.rows[0][6]}</h3>
-                <h3>ROOM  : {data1.rows[0][7]}</h3>
-                <h3>COUPON  : {data1.rows[0][8]}</h3>
-
-                <Link to="/updatestu" className='showstulink'>
-                            <button class="showstu" >
-                            Update Info
-                            </button>
-                        </Link>
-
-                <Link to="/show" className='showstulink' state={{from:t}}>
+		<Link to="/show" className='showstulink' state={{from:t}}>
                             <button class="showstu" onClick={funcOrder}>
                             Show Students
                             </button>
@@ -149,30 +126,20 @@ function StuFirstPage(){
                         <option value="ROOM_NO">Room Number</option> 
                         <option value="LVL">Level</option>   
                     </select>
-                <Link to="/studining" className='showstulink'>
-                        <button class="showstu" >
-                        Dining Info
-                        </button>
-                    </Link>
-                <Link to="/managersection" className='showstulink'>
-                    <button class="showstu" >
-                    MESS MANAGER SECTION
-                    </button>
-                </Link>
-                <Link to="/" className='showstulink'>
-                    <button class="showstu" >
-                    Log out
-                    </button>
-                </Link>
-            </div>
-        }
-
-		
+		<Link to="/studining" className='showstulink'>
+				<button class="showstu" >
+				Dining Info
+				</button>
+			</Link>
+		<Link to="/" className='showstulink'>
+			<button class="showstu" >
+			Log out
+			</button>
+		</Link>
 		</div>
-
-        
+		
         </div>
 	);
 };
 
-export default StuFirstPage;
+export default OfficialFirstPage;

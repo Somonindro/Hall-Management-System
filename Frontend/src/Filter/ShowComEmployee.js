@@ -47,9 +47,6 @@ function ShowComEmployee (){
 
       
     const funcAppoint=()=>{ 
-      
-
-
 
       fetch('http://localhost:2020/oracle-con/reg-std-appointnow',{
       method:'post',

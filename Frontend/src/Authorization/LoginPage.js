@@ -1,4 +1,4 @@
-import './LoginPage.css';
+import '../Styles/LoginPage.css';
 import { useState } from 'react';
 import {Route, Path, Link} from 'react-router-dom';
 

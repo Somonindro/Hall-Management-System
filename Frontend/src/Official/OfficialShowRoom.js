@@ -1,8 +1,8 @@
-// import './ApprovalPage.css';
+import '../Styles/OfficialShowRoom.css';
 import React, { useState, useEffect } from "react";
 import {Route, Path, Link, useLocation} from 'react-router-dom';
 
-function DiningHistory(){
+function OfficialShowRoom(){
     const [data, setData] = useState([]);
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
@@ -10,7 +10,7 @@ function DiningHistory(){
 
     useEffect(() => {
         async function fetchData() {
-          fetch("http://localhost:2020/oracle-con/reg-std-dininghistory",{
+          fetch("http://localhost:2020/oracle-con/reg-std-officialshowroom",{
           method:'post',
           body: JSON.stringify(data),
           headers:{
@@ -42,22 +42,31 @@ function DiningHistory(){
     
   return (
     
-
-        <div class="container">
         
+
+    <div class="offshowroom">
+    
+    <h3>ROOM LIST</h3>
+  
+        <div>
+        
+        
+        <br>
+        </br>
         <table className='table-app'>
             <tbody>
             <tr>
-                <th className='th-app'>CURRENT DATE</th>
-                <th className='th-app'>LUNCH</th>
-                <th className='th-app'>DINNER</th>
-                
+                <th className='th-app'>ROOM NO</th>
+                <th className='th-app'>FLOOR</th>
+                <th className='th-app'>CAPACITY</th>
+                <th className='th-app'>TOTAL STUDENT</th>
+                <th className='th-app'></th>
             </tr>
             {data.rows.map(animal => (
             <tr>{animal.map(x =>( 
             <td className='td-app'>{x}</td>
             )
-            )}
+            )}<td><Link to="/offroomdetails" state={{from:animal}}><button className='app-button'>Show</button></Link></td>
             </tr>
             
             ))}
@@ -66,7 +75,9 @@ function DiningHistory(){
         </table> 
 
         </div>
+
+        </div>
   );
 }
 
-export default DiningHistory;
+export default OfficialShowRoom;

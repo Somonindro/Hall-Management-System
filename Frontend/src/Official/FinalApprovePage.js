@@ -1,4 +1,4 @@
-import './FinalApprovePage.css';
+import '../Styles/FinalApprovePage.css';
 import React, { useState, useEffect } from "react";
 import {Route, Path, Link, useLocation} from 'react-router-dom';
 

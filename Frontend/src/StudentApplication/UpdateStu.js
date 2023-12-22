@@ -1,4 +1,4 @@
-import './UpdateStu.css';
+import '../Styles/UpdateStu.css';
 import { useState } from 'react';
 import {Route, Path, Link} from 'react-router-dom';
 

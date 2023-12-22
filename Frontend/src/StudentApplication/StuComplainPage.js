@@ -1,4 +1,4 @@
-import './StuComplainPage.css';
+import '../Styles/StuComplainPage.css';
 import { useState } from 'react';
 import {Route, Path, Link} from 'react-router-dom';
 

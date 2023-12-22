@@ -1,8 +1,8 @@
-import './ApprovalPage.css';//here problem
+
 import React, { useState, useEffect } from "react";
 import {Route, Path, Link, useLocation} from 'react-router-dom';
 
-function ShowComplainPage(){
+function DiningHistory(){
     const [data, setData] = useState([]);
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
@@ -10,7 +10,7 @@ function ShowComplainPage(){
 
     useEffect(() => {
         async function fetchData() {
-          fetch("http://localhost:2020/oracle-con/reg-std-showcomplain",{
+          fetch("http://localhost:2020/oracle-con/reg-std-dininghistory",{
           method:'post',
           body: JSON.stringify(data),
           headers:{
@@ -36,6 +36,9 @@ function ShowComplainPage(){
       if (error) return <div>Error: {error.message}</div>;
       if (!isLoaded) return <div>...loading</div>;
 
+
+
+
     
   return (
     
@@ -45,21 +48,17 @@ function ShowComplainPage(){
         <table className='table-app'>
             <tbody>
             <tr>
-                <th className='th-app'>MAIL ID</th>
-                <th className='th-app'>STUDENT ID</th>
-                <th className='th-app'>ROOM NO</th>
+                <th className='th-app'>CURRENT DATE</th>
+                <th className='th-app'>LUNCH</th>
+                <th className='th-app'>DINNER</th>
                 
-                <th className='th-app'>DESCRIPTION</th>
-                <th className='th-app'>STATE</th>
-                <th className='th-app'>HALL NAME</th>
             </tr>
             {data.rows.map(animal => (
             <tr>{animal.map(x =>( 
             <td className='td-app'>{x}</td>
             )
-            )}<td><Link to="/showcomemployee" state={{from:animal}}><button className='app-button'>SHOW</button></Link></td>
+            )}
             </tr>
-            
             
             ))}
             
@@ -70,4 +69,4 @@ function ShowComplainPage(){
   );
 }
 
-export default ShowComplainPage;
+export default DiningHistory;

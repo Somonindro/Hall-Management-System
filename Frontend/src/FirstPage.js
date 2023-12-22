@@ -1,5 +1,5 @@
 import react from "react";
-import './FirstPage.css';
+import '../Styles/FirstPage.css';
 import {Route, Path, Link} from 'react-router-dom';
 import img_stu from './stu_background.jpg';
 
