@@ -1,6 +1,7 @@
 import { connection } from "../oracleConnection";
 import express from 'express'
 const authRouter = express.Router();
+let mail_from_signin;
 
 export async function auth(req, res, next) {
     try {

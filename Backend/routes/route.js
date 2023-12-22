@@ -24,13 +24,21 @@ import showRoomsOffRouter from "../src/Official/show_rooms";
 import showRoomDetailsOffRouter from "../src/Official/show_room_details";
 import showComplainsOffRouter from "../src/Official/show_complains";
 import firstPageOffRouter from "../src/Official/first_page";
+import finalizeAppointmentRouter from "../src/Official/finalize_appointment";
+import officialRouter from "../src/Official/official";
 
 import orderByRouter from "../src/Filter/order_by";
 import setRoomRouter from "../src/Filter/set_room";
 import searchRouter from "../src/Filter/search";
 import searchFinalRouter from "../src/Filter/search_final";
+import appointRouter from "../src/Filter/appoint";
 
 import stuInfoRouter from "../src/Student/info";
+import firstPageStuRouter from "../src/Student/first_page";
+
+import firstPageEmRouter from "../src/Employee/first_page";
+import employeeRouter from "../src/Employee/employee";
+import showAppointmentEmRouter from "../src/Employee/show_appointment";
 
 const router = express.Router();
 
@@ -59,13 +67,21 @@ router.use("/reg-std-officialshowroom", showRoomsOffRouter);
 router.use("/reg-std-offroomdetails", showRoomDetailsOffRouter);
 router.use("/reg-std-showcomplain", showComplainsOffRouter);
 router.use("/reg-std-ofirstpage", firstPageOffRouter);
+router.use("/reg-std-appointfinal", finalizeAppointmentRouter);
+router.use("/reg-std-official", officialRouter);
 
 router.use("/reg-std-stufirst", orderByRouter);
 router.use("/reg-std-setroomno", setRoomRouter);
 router.use("/reg-std-search", searchRouter);
 router.use("/reg-std-searchfinal", searchFinalRouter);
+router.use("/reg-std-appointnow", appointRouter);
 
 router.use("/reg-std-entry", stuInfoRouter);
+router.use("/reg-std-sfirstpage", firstPageStuRouter);
+
+router.use("/reg-std-emfirstpage", firstPageEmRouter);
+router.use("/reg-std-employee", employeeRouter);
+router.use("/reg-std-getappoint", showAppointmentEmRouter);
 
 
 module.exports = router;
