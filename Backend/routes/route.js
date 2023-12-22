@@ -1,10 +1,13 @@
 import express from "express";
+
 import { authRouter } from "../src/Authorization/auth";
 import signupRouter from "../src/Authorization/signup";
+
 import diningHistoryRouter from "../src/Dining/history";
 import diningManagerRouter from "../src/Dining/mess_manager";
 import isManagerRouter from "../src/Dining/is_manager";
 import setMenuRouter from "../src/Dining/set_menu";
+
 import managerApplicationStuRouter from "../src/StudentApplication/for_mess_manager";
 import roomApplicationStuRouter from "../src/StudentApplication/for_room";
 import updateStuRouter from "../src/StudentApplication/update_info";
@@ -26,6 +29,9 @@ import showComplainsOffRouter from "../src/Official/show_complains";
 import firstPageOffRouter from "../src/Official/first_page";
 import finalizeAppointmentRouter from "../src/Official/finalize_appointment";
 import officialRouter from "../src/Official/official";
+import doneAppointmentRouter from "../src/Official/done_appointment";
+import showApprovalOffRouter from "../src/Official/show_approvals";
+import approvalOffRouter from "../src/Official/approve";
 
 import orderByRouter from "../src/Filter/order_by";
 import setRoomRouter from "../src/Filter/set_room";
@@ -44,10 +50,12 @@ const router = express.Router();
 
 router.use("/reg-std", authRouter);
 router.use("/reg-std-signup", signupRouter);
+
 router.use("/reg-std-dininghistory", diningHistoryRouter);
 router.use("/reg-std-studining", diningManagerRouter);
 router.use("/reg-std-managersection", isManagerRouter);
 router.use("/reg-std-managersetmenu", setMenuRouter);
+
 router.use("/reg-std-stushowapplication", managerApplicationStuRouter);
 router.use("/reg-std-stushowroomapplication", roomApplicationStuRouter);
 router.use("/reg-std-updatestu", updateStuRouter);
@@ -69,6 +77,9 @@ router.use("/reg-std-showcomplain", showComplainsOffRouter);
 router.use("/reg-std-ofirstpage", firstPageOffRouter);
 router.use("/reg-std-appointfinal", finalizeAppointmentRouter);
 router.use("/reg-std-official", officialRouter);
+router.use("/reg-std-finalgetappoint", doneAppointmentRouter);
+router.use("/reg-std-approve", showApprovalOffRouter);
+router.use("/reg-std-approvenow", approvalOffRouter);
 
 router.use("/reg-std-stufirst", orderByRouter);
 router.use("/reg-std-setroomno", setRoomRouter);
